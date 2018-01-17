@@ -1,5 +1,3 @@
-
-
 def print_table(table, title_list):
     """
     Prints table with data. Sample output:
@@ -20,8 +18,7 @@ def print_table(table, title_list):
     """
 
     number_of_columns = len(title_list)
-    table_with_header = table + [title_list]
-    cell_widths = calculate_width(table_with_header, number_of_columns)
+    cell_widths = calculate_width(table, number_of_columns)
     cell_content = "{:^" + str(cell_widths[0]) + "}"
     break_line = "-" * 4 + "-" * sum(cell_widths)
 
@@ -49,7 +46,7 @@ def calculate_width(table, n):
     return arr
 
 
-def print_result(result, label):
+def print_result(result):
     """
     Displays results of the special functions.
 
@@ -60,9 +57,7 @@ def print_result(result, label):
     Returns:
         This function doesn't return anything it only prints to console.
     """
-    print(result, label)
-
-    pass
+    print(result)
 
 
 def print_menu(title, list_options, exit_message):
@@ -86,7 +81,15 @@ def print_menu(title, list_options, exit_message):
         This function doesn't return anything it only prints to console.
     """
 
-    # your code
+
+    print(title,":")
+    i = 0
+    x = 1
+    while i != len(list_options):
+        print("(",str(x),")", list_options[i])
+        i += 1
+        x += 1
+    print("( 0 )",exit_message)
 
     pass
 
@@ -110,10 +113,11 @@ def get_inputs(list_labels, title):
         List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-
-    # your code
-    
-    pass
+    inputs = []
+    print(title)
+    for i in list_labels:
+        inputs.append(input(i))
+    return inputs
 
 
 # This function displays an error message. (example: Error: @message)
